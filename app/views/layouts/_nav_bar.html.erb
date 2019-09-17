@@ -1,0 +1,18 @@
+<% if current_user.present? %>
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" href="<%= home_index_path %>">Welcome</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="<%= appointments_path %>">Appointment</a>
+    </li>
+    <% if current_user.is_doctor?%>
+      <li class="nav-item">
+        <a class="nav-link" href="<%= doctor_availabilities_path %>">Doctor Availabilty</a>
+      </li>
+    <% end %>  
+    <li class="nav-item">
+      <a class="nav-link" href="<%= destroy_user_session_path %>" data-method="delete">Logout</a>
+    </li>
+  </ul>
+<% end %>  

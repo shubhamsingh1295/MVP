@@ -1,0 +1,29 @@
+<%= form_for Appointment.new, url: {action: "create"}, html: {class: "new_form"} do |f| %>
+
+  <legend class="text-bold">Book an Appointment</legend>
+	<div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+      	<label>Select Doctor </label>
+  			<%= f.collection_select(:doctor_id, @doctors, :id, :name, prompt: true) %>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.text_field :start_time, autofocus: true, autocomplete: "off", class: "form-control start_time" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">    
+    <div class="col-lg-12">
+    	<%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>  
+<% end %>
+
+<script type="text/javascript">
+  $(".start_time").datetimepicker({
+    format :'HH:mm',
+    useCurrent: false,
+  });
+</script>

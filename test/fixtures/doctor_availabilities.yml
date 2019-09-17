@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  min_days_before: 1
+  max_days_after: 1
+  availability: MyText
+  user: one
+
+two:
+  min_days_before: 1
+  max_days_after: 1
+  availability: MyText
+  user: two

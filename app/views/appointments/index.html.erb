@@ -1,0 +1,40 @@
+<h2>Appointment</h2>           
+  <% if current_user.is_doctor? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start Time</th>
+          <th>Patient Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @appointments.present? %>
+          <% @appointments.each do |appointment|%>
+            <tr>
+              <td><%= appointment.try(:start_time)%></td>
+              <td><%= transaction.patient.try(:name) %></td>
+            </tr>
+          <% end %>
+        <% end %>    
+      </tbody>
+    </table>
+  <% elsif current_user.is_patient? %> 
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start Time</th>
+          <th>Doctor Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @appointments.present? %>
+          <% @appointments.each do |appointment|%>
+            <tr>
+              <td><%= appointment.try(:start_time)%></td>
+              <td><%= transaction.doctor.try(:name) %></td>
+            </tr>
+          <% end %>
+        <% end %>    
+      </tbody>
+    </table> 
+  <% end %>

@@ -1,0 +1,5 @@
+<h2 class="text-center">Welcome <%= current_user.try(:name).to_s.capitalize %></h2>
+
+<h4>Name : <%= current_user.try(:name) %> </h4>
+<h4>Email : <%= current_user.try(:email) %></h4>
+<h4>Phone Number : <%= current_user.try(:contact_number) %> </h4>
